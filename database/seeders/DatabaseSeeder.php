@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\reservation;
 use Illuminate\Database\Seeder;
 
 use App\Models\User;
@@ -15,7 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory()->count(100)->create();
-        $this->call(ShopSeeder::class);
+        User::factory()->count(100)->create();
     }
 }
