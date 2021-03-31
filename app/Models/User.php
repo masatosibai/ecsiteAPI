@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function likes()
     {
-        return $this->belongsToMany(shop::class);
+        return $this->belongsToMany(shop::class, "shop_user");
     }
 
     public function reservations()

@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\ShopAdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,7 @@ Route::post('/reservation', [ReservationController::class, 'post']);
 Route::delete('/reservation/{reservation}', [ReservationController::class, 'destroy']);
 Route::post('/likes', [LikeController::class, 'post']);
 Route::delete('/likes', [LikeController::class, 'destroy']);
+Route::get('/shopadmin/{shop}', [ShopAdminController::class, 'get']);
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
