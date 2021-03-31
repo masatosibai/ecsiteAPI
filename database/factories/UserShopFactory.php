@@ -22,7 +22,7 @@ class UserShopFactory extends Factory
     public function definition()
     {
         return [
-            "user_id" => $this->faker->numberBetween($min = 1, $max = 5000),
+            "user_id" => $this->faker->numberBetween($min = 1, $max = 10),
             "shop_id" => $this->faker->numberBetween($min = 1, $max = 20)
         ];
     }

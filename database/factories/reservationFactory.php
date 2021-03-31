@@ -23,7 +23,7 @@ class reservationFactory extends Factory
     {
 
         return [
-            "user_id" => $this->faker->numberBetween($min = 1, $max = 5000),
+            "user_id" => $this->faker->numberBetween($min = 1, $max = 10),
             "shop_id" => $this->faker->numberBetween($min = 1, $max = 20),
             "date" => $this->faker->date('Y/m/d'),
             "time" => $this->faker->time("H:i:s"),

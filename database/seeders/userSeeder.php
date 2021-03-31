@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class userSeeder extends Seeder
 {
@@ -14,7 +15,14 @@ class userSeeder extends Seeder
      */
     public function run()
     {
-        $users = User::factory()->count(5000)->make();
+        $param = [
+            'name' => 'admin',
+            'email' => "admin@test.com",
+            'password' => '123456',
+            "role" => 1,
+        ];
+        DB::table('users')->insert($param);
+        $users = User::factory()->count(10)->make();
         User::insert($users->toArray());
     }
 }

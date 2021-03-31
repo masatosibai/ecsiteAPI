@@ -95,12 +95,14 @@ class User extends Authenticatable
         $item->name = $request->name;
         $item->email = $request->email;
         $item->password = $hashed_password;
+        $item->role =
+            $request->role;
         $item->created_at = $now;
         $item->updated_at = $now;
         $item->save();
         return response()->json([
             "message" => "作成成功",
-            "auth" => true,
+            // "auth" => true,
             "data" => $item
         ], 200);
     }

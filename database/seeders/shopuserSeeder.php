@@ -17,7 +17,7 @@ class shopuserSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 5000; $i++) {
+        for ($i = 0; $i < 100; $i++) {
 
             // postsとtagsテーブルのidカラムをランダムに並び替え、先頭の値を取得
             $set_user_id = User::select('id')->orderByRaw("RAND()")->first()->id;

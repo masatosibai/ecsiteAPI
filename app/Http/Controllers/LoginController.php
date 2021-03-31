@@ -56,7 +56,7 @@ class LoginController extends Controller
         // );
 
         $items = DB::table('users')->where('email', $data["email"])->first();
-        return response()->json(['auth' => true, 'email' => $data["email"], "id" => $items->id], 200);
+        return response()->json(['auth' => true, 'role' => $items->role, "id" => $items->id], 200);
         // if (Hash::check($request->password, $items->password)) {
         //     return response()->json(['auth' => true, 'email' => $data["email"], "id" => $items->id], 200);
         // } else {
