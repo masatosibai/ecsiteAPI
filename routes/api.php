@@ -7,6 +7,9 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ShopAdminController;
+use App\Http\Controllers\ShopAdminRegisterController;
+use App\Http\Middleware\AdminCheck;
+use App\Http\Middleware\ShopAdminCheck;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +32,8 @@ Route::post('/reservation', [ReservationController::class, 'post']);
 Route::delete('/reservation/{reservation}', [ReservationController::class, 'destroy']);
 Route::post('/likes', [LikeController::class, 'post']);
 Route::delete('/likes', [LikeController::class, 'destroy']);
-Route::get('/shopadmin/{shop}', [ShopAdminController::class, 'get']);
+Route::get('/{shop}', [ShopAdminController::class, 'get'])->middleware("ShopAdminCheck");
+Route::post('/shopadmin/register', [ShopAdminRegisterController::class, 'post'])->middleware("AdminCheck");
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
