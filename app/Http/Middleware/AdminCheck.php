@@ -17,7 +17,7 @@ class AdminCheck
     public function handle(Request $request, Closure $next)
     {
         if ($request->admin != 1) {
-            return response()->json(["message" => "権限管理エラ-"], 404);
+            return response()->json(["msg" => "権限管理エラ-"], 404);
         }
         return $next($request);
     }

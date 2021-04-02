@@ -24,16 +24,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//userAPI
 Route::apiResource('/shops', ShopController::class);
 Route::apiResource('/users', UserController::class);
 Route::get('/login', [LoginController::class, 'get']);
-Route::post('/logout', [LogoutController::class, 'post']);
+// Route::post('/logout', [LogoutController::class, 'post']);
 Route::post('/reservation', [ReservationController::class, 'post']);
 Route::delete('/reservation/{reservation}', [ReservationController::class, 'destroy']);
 Route::post('/likes', [LikeController::class, 'post']);
 Route::delete('/likes', [LikeController::class, 'destroy']);
-Route::get('/{shop}', [ShopAdminController::class, 'get'])->middleware("ShopAdminCheck");
-Route::post('/shopadmin/register', [ShopAdminRegisterController::class, 'post'])->middleware("AdminCheck");
+
+//shopadminAPI
+Route::get('/shopadmin/shops', [ShopAdminController::class, 'index'])->middleware("ShopAdminCheck");
+Route::post('/shopadmin/register/shop', [ShopAdminController::class, 'store'])->middleware("ShopAdminCheck");
+Route::get('/shopadmin/shops/{shop}', [ShopAdminController::class, 'show'])->middleware("ShopAdminCheck");
+
+//adminAPI
+Route::post('/admin/register/shopadmin', [ShopAdminRegisterController::class, 'post'])->middleware("AdminCheck");
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
