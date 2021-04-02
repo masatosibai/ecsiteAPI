@@ -22,4 +22,9 @@ class ShopAdminController extends Controller
 
         return shop::shopInfo_reservation($shop);
     }
+    public function delete(Request $request)
+    {
+
+        return shop::deleteShopInfo($request);
+    }
 }

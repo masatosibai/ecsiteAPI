@@ -37,4 +37,18 @@ class shop extends Model
             "data" => $item
         ], 200);
     }
+    public static function deleteShopInfo(Request $request)
+    {
+        $item = shop::where('id', $request->shopID)->delete();
+
+        if ($item) {
+            return response()->json([
+                'msg' => '店舗情報削除',
+            ], 200);
+        } else {
+            return response()->json([
+                'msg' => '店舗情報なし',
+            ], 404);
+        }
+    }
 }
