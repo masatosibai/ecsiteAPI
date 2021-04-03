@@ -15,7 +15,7 @@ class shop extends Model
     }
     public function reservations()
     {
-        return $this->belongsToMany(User::class, "reservations");
+        return $this->belongsToMany(User::class, "reservations",   "shop_id", "user_id")->as('resrve_info')->withPivot("id", "date", "time", "user_num");
     }
 
     public static function shopInfo_reservation(shop $shop)
@@ -32,11 +32,26 @@ class shop extends Model
         $item->image_url = $request->imageUrl;
         $item->save();
         return response()->json([
-            "message" => "作成成功",
-            // "auth" => true,
+            "msg" => "作成成功",
             "data" => $item
         ], 200);
     }
+    public static function updateShopinfo(Request $request)
+    {
+        $item = shop::where('id', $request->id)->first();
+        $item->name = $request->name;
+        $item->area = $request->area;
+        $item->genre = $request->genre;
+        $item->description = $request->description;
+        $item->image_url = $request->imageUrl;
+        $item->save();
+
+        return response()->json([
+            "msg" => "変更成功",
+            // "data" => $item
+        ], 200);
+    }
+
     public static function deleteShopInfo(Request $request)
     {
         $item = shop::where('id', $request->shopID)->delete();

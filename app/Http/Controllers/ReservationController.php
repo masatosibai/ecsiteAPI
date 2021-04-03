@@ -16,12 +16,12 @@ class ReservationController extends Controller
         $item = reservation::where('id', $reservation->id)->delete();
         if ($item) {
             return response()->json(
-                ['message' => ' deleted successfully'],
+                ['msg' => ' deleted successfully'],
                 200
             );
         } else {
             return response()->json(
-                ['message' => ' not found'],
+                ['msg' => ' not found'],
                 404
             );
         }

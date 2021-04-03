@@ -38,7 +38,9 @@ Route::delete('/likes', [LikeController::class, 'destroy']);
 Route::get('/shopadmin/shops', [ShopAdminController::class, 'index'])->middleware("ShopAdminCheck");
 Route::post('/shopadmin/register/shop', [ShopAdminController::class, 'store'])->middleware("ShopAdminCheck");
 Route::get('/shopadmin/shops/{shop}', [ShopAdminController::class, 'show'])->middleware("ShopAdminCheck");
+Route::post('/shopadmin/update/shop', [ShopAdminController::class, 'update'])->middleware("ShopAdminCheck");
 Route::post('/shopadmin/delete/shop', [ShopAdminController::class, 'delete'])->middleware("ShopAdminCheck");
+Route::delete('/shopadmin/delete/reservation/{reservation}', [ReservationController::class, 'destroy'])->middleware("ShopAdminCheck");
 
 
 //adminAPI
