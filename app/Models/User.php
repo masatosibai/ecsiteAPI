@@ -62,7 +62,7 @@ class User extends Authenticatable
     {
         $loginJwt = $request->header("Authorization");
 
-        $verifier = IdTokenVerifier::createWithProjectId("ecsite-91586");
+        $verifier = IdTokenVerifier::createWithProjectId(config("firebase.projectID"));
         try {
             $token = $verifier->verifyIdToken($loginJwt);
         } catch (IdTokenVerificationFailed $e) {

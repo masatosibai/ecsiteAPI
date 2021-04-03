@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 return [
+    "projectID" => env("FIREBASE_PROJECTID"),
     /*
      * ------------------------------------------------------------------------
      * Default Firebase project
