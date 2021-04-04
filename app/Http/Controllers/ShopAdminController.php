@@ -29,9 +29,9 @@ class ShopAdminController extends Controller
     }
 
 
-    public function delete(Request $request)
+    public function destroy(shop $shop)
     {
 
-        return shop::deleteShopInfo($request);
+        return shop::deleteShopInfo($shop);
     }
 }

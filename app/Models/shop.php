@@ -52,9 +52,9 @@ class shop extends Model
         ], 200);
     }
 
-    public static function deleteShopInfo(Request $request)
+    public static function deleteShopInfo(shop $shop)
     {
-        $item = shop::where('id', $request->shopID)->delete();
+        $item = $shop->delete();
 
         if ($item) {
             return response()->json([
