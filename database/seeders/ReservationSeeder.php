@@ -20,7 +20,7 @@ class ReservationSeeder extends Seeder
     public function run()
     {
         $faker = FakerFactory::create('ja_JP');
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 200; $i++) {
 
             // postsとtagsテーブルのidカラムをランダムに並び替え、先頭の値を取得
             $set_user_id = User::select('id')->orderByRaw("RAND()")->first()->id;
