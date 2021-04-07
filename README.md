@@ -1,8 +1,20 @@
 ### 環境
 
 Laravel Framework 8.29.0
+
 kreait/firebase-tokens:1.14.0
+
 mysql 8.0.22
+
+### 本番環境と開発環境
+
+masterブランチを本番環境
+
+developブランチを開発環境で使用
+開発環境で適宜ブランチを切り開発する
+
+develop→masterへCreate a merge commitで行っている
+
 
 
 ### テーブル定義　ＥＲ図
