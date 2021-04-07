@@ -1,6 +1,7 @@
 ### 環境
 
 Laravel Framework 8.29.0
+kreait/firebase-tokens:1.14.0
 mysql 8.0.22
 
 
