@@ -15,7 +15,7 @@ class APIAdminTest extends TestCase
      */
     public function test_example()
     {
-        //権限がちがうからエラー
+        //権限がちがうからエラーです
         $response = $this->post('/api/admin/register/shopadmin', [
             'name' => 'admin',
             'email' => 'sample@d.com',
