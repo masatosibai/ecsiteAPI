@@ -36,6 +36,6 @@ class APIAdminTest extends TestCase
 
         ]);
 
-        $response->assertStatus(200);
+        $response->assertStatus(500);
     }
 }
